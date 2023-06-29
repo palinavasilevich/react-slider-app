@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slide from "./Slide";
 
 import { list, longList } from "../data";
@@ -6,6 +6,14 @@ import { list, longList } from "../data";
 const Carousel = () => {
   const [people, setPeople] = useState(longList);
   const [currentPerson, setCurrentPerson] = useState(0);
+
+  useEffect(() => {
+    let intervalID = setInterval(() => {
+      nextSlide();
+    }, 2000);
+
+    return () => clearInterval(intervalID);
+  }, [currentPerson]);
 
   const nextSlide = () => {
     setCurrentPerson((person) => {
