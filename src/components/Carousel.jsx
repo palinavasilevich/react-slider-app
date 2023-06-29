@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slide from "./Slide";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import { list, longList } from "../data";
 
@@ -35,12 +36,18 @@ const Carousel = () => {
         <Slide
           key={person.id}
           {...person}
-          prevSlide={prevSlide}
-          nextSlide={nextSlide}
           personIndex={personIndex}
           currentPerson={currentPerson}
         />
       ))}
+      <div className="btn-container">
+        <button className="prev" onClick={prevSlide}>
+          <FiChevronLeft />
+        </button>
+        <button className="next" onClick={nextSlide}>
+          <FiChevronRight />
+        </button>
+      </div>
     </div>
   );
 };

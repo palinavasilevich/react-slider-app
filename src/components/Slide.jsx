@@ -1,17 +1,7 @@
 import React from "react";
 import { FaQuoteRight } from "react-icons/fa";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
-const Slide = ({
-  image,
-  name,
-  title,
-  quote,
-  prevSlide,
-  nextSlide,
-  personIndex,
-  currentPerson,
-}) => {
+const Slide = ({ image, name, title, quote, personIndex, currentPerson }) => {
   return (
     <div
       className="slide"
@@ -26,14 +16,6 @@ const Slide = ({
       <p className="title">{title}</p>
       <p className="text">{quote}</p>
       <FaQuoteRight className="icon" />
-      <div className="btn-container">
-        <button className="prev" onClick={prevSlide}>
-          <FiChevronLeft />
-        </button>
-        <button className="next" onClick={nextSlide}>
-          <FiChevronRight />
-        </button>
-      </div>
     </div>
   );
 };
