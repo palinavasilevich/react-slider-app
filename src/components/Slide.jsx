@@ -1,0 +1,41 @@
+import React from "react";
+import { FaQuoteRight } from "react-icons/fa";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+
+const Slide = ({
+  image,
+  name,
+  title,
+  quote,
+  prevSlide,
+  nextSlide,
+  personIndex,
+  currentPerson,
+}) => {
+  return (
+    <div
+      className="slide"
+      style={{
+        transform: `translateX(${100 * (personIndex - currentPerson)}%)`,
+        opacity: personIndex === currentPerson ? 1 : 0,
+        visibility: personIndex === currentPerson ? "visible" : "hidden",
+      }}
+    >
+      <img src={image} alt={name} className="person-img" />
+      <h5 className="name">{name}</h5>
+      <p className="title">{title}</p>
+      <p className="text">{quote}</p>
+      <FaQuoteRight className="icon" />
+      <div className="btn-container">
+        <button className="prev" onClick={prevSlide}>
+          <FiChevronLeft />
+        </button>
+        <button className="next" onClick={nextSlide}>
+          <FiChevronRight />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Slide;
